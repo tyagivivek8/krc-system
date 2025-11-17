@@ -1,0 +1,19 @@
+syntax = "proto3";
+package common;
+option go_package = "github.com/tyagivivek8/krc-system/proto;common";
+
+message Document {
+    string id = 1;
+    string content = 2;
+    string file_name = 3;
+}
+
+message QueryRequest {
+    string user_id = 1;
+    string query = 2;
+}
+
+message QueryResponse {
+    string answer = 1;
+    repeated string citations = 2;
+}

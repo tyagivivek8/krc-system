@@ -1,0 +1,61 @@
+# Binaries for programs and plugins
+/bin/
+/build/
+/dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go work / cache
+*.cache
+GOMODCACHE/
+
+# Go tool generated files
+*.coverprofile
+coverage.out
+
+# Protobuf generated code
+/proto/*.pb.go
+/proto/*_grpc.pb.go
+
+# Modules (keep go.sum committed) - ignore module cache and temporary dirs
+**/vendor/
+**/bin/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs, temp, env
+*.log
+*.tmp
+*.swp
+*.swo
+.env
+.env.local
+
+# Docker / Compose artifacts
+docker-compose.override.yml
+**/docker-compose.override.yml
+**/postgres/data/
+*.local
+
+# Keys, secrets
+*.key
+*.pem
+secrets/*.key
+secrets/*.pem
+
+# Misc
+*.zip
+*.tar
+*.gz
