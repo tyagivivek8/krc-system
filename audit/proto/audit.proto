@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package audit;
+
+option go_package = "github.com/tyagivivek8/krc-system/audit/proto;auditpb";
+
+message LogQueryRequest {
+  string user_id = 1;
+  string query = 2;
+  string response_ref = 3;
+  string status = 4; // e.g. "SUCCESS", "FAILED"
+}
+
+message LogQueryResponse {
+  string id = 1;        // UUID of the audit row
+  string status = 2;    // echo back or normalized status
+}
+
+service AuditService {
+  rpc LogQuery (LogQueryRequest) returns (LogQueryResponse);
+}

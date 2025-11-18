@@ -1,3 +1,4 @@
+version: '3'
 services:
   postgres:
     image: postgres:16
@@ -7,3 +8,13 @@ services:
       POSTGRES_USER: audit
       POSTGRES_PASSWORD: auditpass
       POSTGRES_DB: auditlog
+
+  audit:
+    build: ./audit
+    depends_on:
+      - postgres
+    environment:
+      AUDIT_DB_DSN: postgres://audit:auditpass@postgres:5432/auditlog?sslmode=disable
+      AUDIT_GRPC_ADDR: ":50051"
+    ports:
+      - "50051:50051"
