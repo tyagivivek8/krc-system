@@ -41,7 +41,7 @@ Thumbs.db
 *.swp
 *.swo
 .env
-.env.local
+.env.*.local
 
 # Docker / Compose artifacts
 docker-compose.override.yml
@@ -54,8 +54,23 @@ docker-compose.override.yml
 *.pem
 secrets/*.key
 secrets/*.pem
+*.env
 
 # Misc
 *.zip
 *.tar
 *.gz
+
+# Build outputs
+build/
+dist/
+
+# Runtime data
+# Ignore all local runtime data directories (Qdrant, ingestion, etc.)
+data/
+
+# Qdrant-specific runtime files (if you prefer more granularity)
+# raft/state, collections, aliases and other runtime artifacts
+data/**/raft_state.json
+data/**/collections/
+data/**/aliases/
