@@ -41,5 +41,19 @@ services:
       - QDRANT_URL=http://qdrant:6333
     depends_on:
       - qdrant
+  orchestrator:
+    build:
+      context: .
+      dockerfile: orchestrator/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ORCH_HTTP_ADDR=:8080
+      - QUERY_GRPC_ADDR=query:50052
+      - AUDIT_GRPC_ADDR=audit:50051
+      - LLM_MODEL=llama3
+    depends_on:
+      - query
+      - audit
 
 
