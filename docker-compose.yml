@@ -33,4 +33,13 @@ services:
       - "6333:6333"
     volumes:
       - ./data/qdrant:/qdrant/storage
+  query:
+    build: ./query
+    ports:
+      - "50052:50052"
+    environment:
+      - QDRANT_URL=http://qdrant:6333
+    depends_on:
+      - qdrant
+
 
